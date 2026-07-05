@@ -1,0 +1,450 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="..." crossorigin="anonymous" />
+    <link rel="icon" type="image/png" href="../public/craby.png">
+    <title>Craby Docs</title>
+    <link href="./style.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <body class="bg-white text-gray-900 selection:bg-blue-100">
+      <main class="max-w-6xl mx-auto px-10 pt-16">
+        <div
+          class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-12">
+          <div class="max-w-2xl">
+            <h1 class="text-4xl font-bold tracking-tight mb-4">Craby —
+              Terminal Native AI Coding Agent</h1>
+            <p class="text-gray-500 text-lg leading-relaxed">
+              An agentic, terminal based coding assistant that plans, edits
+              across as many files as a task needs, runs your tests, and
+              remembers your project between sessions with every change
+              staged and shown to you as a diff before anything touches disk.
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <a
+              class="bg-black text-white px-6 py-2 rounded-md font-medium hover:bg-gray-800 transition">Info</a>
+            <a
+              href="https://github.com/arijiiiiitttt/craby"
+              target="_blank"
+              class="bg-white text-black border border-gray-200 px-6 py-2 rounded-md font-medium hover:bg-gray-50 transition">View on 
+              <i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+
+        <!-- Video Card -->
+       <div class="w-full aspect-[16/9] border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+  <iframe 
+    class="w-full h-full" 
+    src="https://youtube.com/embed/<VIDEO_ID>" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
+      </main>
+
+      <section>
+        <body
+          class="bg-white text-slate-800 font-sans antialiased selection:bg-blue-100">
+
+          <div class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+            <div class="flex flex-col md:flex-row gap-16">
+
+              <!-- Main Content Area -->
+              <div class="flex-1 space-y-12">
+                <section>
+                  <h1
+                    class="text-3xl font-bold tracking-tight mb-6">Craby</h1>
+                  <p class="text-slate-600 leading-relaxed mb-6">
+                    Craby is a terminal-native AI coding agent written in
+                    TypeScript on Bun. No editor plugin, no IDE required —
+                    it works wherever you already have a terminal, against
+                    any model OpenRouter hosts or a fully local Ollama model
+                    with no cloud dependency at all. Nothing is written to
+                    your filesystem without explicit approval: staged diffs,
+                    batch or per-file review, and destructive-command
+                    warnings are the core safety model, not a bolt-on
+                    setting.
+                  </p>
+                  <div class="flex items-center gap-2 text-sm">
+                    <span class="text-slate-400">|</span>
+                    <span class="font-medium">Github:</span>
+                    <a href="https://github.com/arijiiiiitttt/craby"
+                      class="text-blue-600 hover:underline">https://github.com/arijiiiiitttt/craby</a>
+                  </div>
+                </section>
+
+                <section>
+                  <h2 class="text-xl font-bold mb-4">Overview</h2>
+                  <p class="text-slate-600 leading-relaxed mb-4">
+                    Craby reads your codebase, stages file changes, then asks
+                    for your approval before writing anything. It supports
+                    three modes — Agent, Ask, and Plan — and gets better the
+                    more you use it on a given project: durable facts,
+                    conventions, and decisions persist across sessions via
+                    <code>craby memory</code>, so you stop re-explaining the
+                    same context every time.
+                  </p>
+                  <p class="text-slate-600 leading-relaxed">
+                    Every applied session is recorded in an undo journal
+                    (independent of git), so <code>craby undo</code> can
+                    precisely revert just what craby changed. It runs on
+                    macOS, Linux, and Windows anywhere Bun runs, and can be
+                    pointed at a local Ollama model to skip the cloud
+                    entirely.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 class="text-xl font-bold mb-4">Features</h2>
+                  <h3 class="text-lg font-semibold text-slate-700 mb-2">Coding
+                    Agent</h3>
+                  <ul
+                    class="list-disc list-inside text-slate-600 space-y-1 ml-2">
+                    <li>Agent, Ask, and Plan modes for coding, read-only Q&A,
+                      and step-by-step planning</li>
+                    <li>Staged diffs — nothing touches disk until you
+                      approve it, file by file or all at once</li>
+                    <li>Multi-turn, streaming output that prints live as the
+                      model generates it</li>
+                    <li>Self-correction loop that re-checks its own work
+                      after real tool calls, up to 2 rounds</li>
+                    <li>Destructive-command warnings on any staged shell
+                      command</li>
+                    <li>Test-aware — auto-detects and runs npm/yarn/pnpm/bun,
+                      pytest, cargo, or go tests against staged changes in an
+                      isolated sandbox</li>
+                    <li>Semantic search over your codebase via a local,
+                      on-disk embedding index</li>
+                    <li><code>craby memory</code> — durable per-project facts
+                      and conventions that persist across sessions</li>
+                    <li><code>craby undo</code> — journal-based rollback of
+                      the last applied session, independent of git</li>
+                    <li>Works against OpenRouter-hosted models or a fully
+                      local Ollama model</li>
+                  </ul>
+                </section>
+
+                <!-- Quick Start and Usage Sections -->
+                <section class="mt-16 space-y-10">
+                  <div>
+                    <h2 class="text-xl font-bold mb-6">Quick Start</h2>
+
+                    <h3
+                      class="text-lg font-semibold text-slate-800 mb-4">Installation</h3>
+                    <!-- Code Block 1 -->
+                    <div
+                      class="bg-slate-50 border border-slate-100 rounded-lg p-6 font-mono text-sm overflow-x-auto relative">
+                      <div class="flex">
+                        <div
+                          class="text-slate-300 pr-4 text-right select-none">1<br>2<br>3<br>4</div>
+                        <div class="text-slate-700">
+                          <span class="text-pink-500">git clone</span>
+                          https://github.com/arijiiiiitttt/craby<br>
+                          <span class="text-pink-500">cd</span> craby<br>
+                          <span class="text-indigo-500">bun</span> install<br>
+                          <span class="text-pink-500">cp</span>
+                          .env.example .env
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm text-slate-600">
+                      craby is a Bun project — install Bun first from
+                      <a href="https://bun.sh" class="text-blue-600 hover:underline">bun.sh</a>.
+                      Fill in <code>OPEN_ROUTER_API_KEY</code> and
+                      <code>OPENROUTER_DEFAULT_MODEL</code> in <code>.env</code>,
+                      or configure <code>CRABY_PROVIDER=ollama</code> to run
+                      fully local with no API key at all.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 class="text-lg font-semibold text-slate-800 mb-4">Using
+                      craby:</h3>
+                    <!-- Code Block 2 -->
+                    <div
+                      class="bg-slate-50 border border-slate-100 rounded-lg p-6 font-mono text-sm overflow-x-auto relative">
+                      <div class="flex">
+                        <div
+                          class="text-slate-300 pr-4 text-right select-none">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</div>
+                        <div class="text-slate-700">
+                          <span class="text-pink-500">bun</span> index.ts
+                          alive?<br>
+                          <span class="text-pink-500">craby</span> agent<br>
+                          <span class="text-pink-500">craby</span> "add input
+                          validation to the signup form"<br>
+                          <span class="text-pink-500">craby</span> ask<br>
+                          <span class="text-pink-500">craby</span> plan<br>
+                          <span class="text-pink-500">craby</span> undo<br>
+                          <span class="text-pink-500">craby</span> memory
+                          list<br>
+                          <span class="text-pink-500">craby</span> memory
+                          clear<br>
+                          <span class="text-pink-500">craby</span> --dir
+                          ../other-project
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm text-slate-600">
+                      Run <code>bun link</code> once to install the global
+                      <code>craby</code> command so it's available from any
+                      project directory. Every change is staged and shown as
+                      a diff before it's written — approve everything at once
+                      or review file by file.
+                    </p>
+                  </div>
+
+                  <!-- Usage Section -->
+                  <div class="pt-6">
+                    <h2 class="text-xl font-bold mb-4">Project Structure</h2>
+                    <p class="text-slate-600 mb-4">craby is organised into
+                      four packages plus a CLI entry point:</p>
+                    <ul class="space-y-2 text-slate-600">
+                      <li class="flex items-center gap-2">
+                        <span class="text-slate-300">—</span>
+                        <code>packages/shared/</code> — config, memory, undo
+                        journal, prompts, risk detection
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-slate-300">—</span>
+                        <code>packages/ai/</code> — model provider wiring for
+                        OpenRouter and Ollama
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-slate-300">—</span>
+                        <code>packages/modes/agent/</code> — orchestrator,
+                        tool executor, approval flow, git and test tools
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-slate-300">—</span>
+                        <code>packages/modes/ask/</code> — read-only
+                        codebase Q&A
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-slate-300">—</span>
+                        <code>packages/modes/plan/</code> — read-only
+                        investigation, produces a numbered markdown plan
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-slate-300">—</span>
+                        <code>packages/tui/</code> — terminal banner, menu,
+                        and interactive picker
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- How it works  -->
+                  <div class="pt-6">
+                    <h2 class="text-xl font-bold mb-4">How It Works :</h2>
+                    <p class="text-slate-600 mb-6">craby is built in six
+                      layers. Each layer handles one specific job and passes
+                      results up to the next. When you run a command,
+                      it travels through these layers and comes back as a
+                      staged, reviewable change.</p>
+                    <h2 class="text-xl font-bold mb-4">Layer 01</h2>
+                    <h3
+                      class="text-lg font-semibold text-slate-800 mb-2">shared
+                      — Config, Memory & Safety</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                      Holds the pieces every mode depends on: env/config
+                      loading, the per-project memory store, the undo
+                      journal, shared prompts, conversation state, and
+                      destructive-command risk detection. Memory is stored
+                      per-project under <code>~/.craby/memory/</code>, not
+                      inside your repo, and is never sent anywhere except as
+                      context in your own requests to your configured model.</p>
+
+                    <h2 class="text-xl font-bold mb-4">Layer 02</h2>
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">ai —
+                      Model Provider</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                      Wires craby up to whichever model you've configured —
+                      any model OpenRouter hosts, or a fully local Ollama
+                      model with no cloud dependency. Streaming, token usage
+                      reporting, and embedding calls for semantic search all
+                      flow through this layer regardless of which provider is
+                      active.</p>
+
+                    <h2 class="text-xl font-bold mb-4">Layer 03</h2>
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">modes/agent
+                      — Coding Agent Core</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                      The brain of craby. The orchestrator reads your
+                      codebase, stages file creates/modifies/deletes in
+                      memory, and coordinates git tools, the test runner, and
+                      semantic search. Nothing is written to disk until the
+                      approval flow confirms it — a summary of changed files
+                      and +/- line stats is shown up front, with full diffs
+                      available per file.</p>
+
+                    <h2 class="text-xl font-bold mb-4">Layer 04</h2>
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">modes/ask
+                      & modes/plan — Read-Only Modes</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                      Ask mode is conversational Q&A over your codebase with
+                      no shell access and no file writes — only
+                      <code>read_file</code>, <code>list_files</code>,
+                      <code>search_files</code>, and
+                      <code>analyze_codebase</code> are available. Plan mode
+                      investigates read-only and produces a numbered markdown
+                      implementation plan, which can then be handed straight
+                      to Agent mode to execute.</p>
+
+                    <h2 class="text-xl font-bold mb-4">Layer 05</h2>
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">tui —
+                      Terminal Interface</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                      Renders the startup banner, the Agent / Ask / Plan /
+                      Help picker, and formats streamed output, diffs, and
+                      approval prompts directly in your terminal — no
+                      external client or editor plugin needed.</p>
+
+                    <h2 class="text-xl font-bold mb-4">Layer 06</h2>
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">cli —
+                      Entry Point</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                      Parses the command you ran (<code>craby agent</code>,
+                      <code>craby ask</code>, <code>craby plan</code>,
+                      <code>craby undo</code>, <code>craby memory ...</code>,
+                      <code>craby --dir ...</code>) and dispatches into the
+                      right mode, or straight into Agent mode when you pass a
+                      task string directly, e.g.
+                      <code>craby "add input validation to the signup
+                        form"</code>.</p>
+                  </div>
+
+                  <div class="pt-6">
+                    <h2 class="text-xl font-bold mb-4">Key Concepts Explained
+                      Simply</h2>
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">What
+                      is Staging?</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                      Instead of writing files directly, craby holds every
+                      create, modify, and delete in memory first. The agent
+                      can even read back its own staged edits within the same
+                      session, so "make a change, then verify it" actually
+                      works. Nothing touches your real filesystem until you
+                      approve it — all at once, or file by file with full
+                      diffs.</p>
+
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">What
+                      is the Self-Correction Loop?</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                      After a turn that made changes, craby automatically
+                      asks itself "is this actually done and correct?" and
+                      keeps fixing — up to 2 rounds by default — before
+                      handing control back to you. Pure conversational
+                      replies skip this; it only runs after real tool calls.
+                      It is like a second pair of eyes that checks its own
+                      work before showing it to you.</p>
+
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">What
+                      is Memory?</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                      craby decides what's worth keeping about a project — a
+                      stated preference, an architectural choice, a "never
+                      touch this folder" rule — and saves it via the
+                      <code>remember</code> tool. The next session's system
+                      prompt includes it automatically, in Agent, Ask, and
+                      Plan mode alike, so you stop re-explaining the same
+                      context every time you open a session.</p>
+
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">What
+                      is the Undo Journal?</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                      Every applied session is recorded in an undo journal
+                      that is completely independent of git, so it works in
+                      any directory. Running <code>craby undo</code>
+                      precisely reverts just what craby changed, without
+                      touching any other edits you've made since. Think of it
+                      as a dedicated safety net separate from your normal
+                      version control.</p>
+
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">What
+                      is Semantic Search?</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                      If you configure an embedding model,
+                      <code>semantic_search</code> finds conceptually related
+                      code even when it doesn't share any keywords with your
+                      query, backed by a local on-disk index. It's how craby
+                      finds the right file to edit in a large codebase
+                      without you having to name it.</p>
+
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2">What
+                      is AGENTS.md?</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                      An <code>AGENTS.md</code> file in your project root
+                      gives craby persistent context — stack, conventions,
+                      architecture decisions — that gets injected into the
+                      system prompt automatically, in every mode. Craby also
+                      discovers and reads <code>SKILL.md</code> files the
+                      same way Claude Code and Cursor do.</p>
+                  </div>
+
+                  
+                </section>
+              </div>
+
+              <!-- Side Bar -->
+              <aside class="w-full md:w-56 space-y-8 text-sm">
+                <div>
+                  <h4 class="font-bold mb-2 text-slate-900">GitHub Repo</h4>
+                  <a href="https://github.com/arijiiiitttt/craby"
+                    target="_blank"
+                    class="text-blue-600 hover:underline">arijiiiitttt/craby</a>
+                </div>
+
+                <div>
+                  <h4 class="font-bold mb-2 text-slate-900">License</h4>
+                  <a href="#" class="text-blue-600 hover:underline">View
+                    License</a>
+                </div>
+
+                <div>
+                  <h4 class="font-bold mb-2 text-slate-900">Use Cases</h4>
+                  <span
+                    class="inline-block px-3 py-1 bg-blue-50 text-blue-600 rounded-md font-medium">AI Coding
+                    Agent</span>
+                </div>
+
+                <div>
+                  <h4 class="font-bold mb-3 text-slate-900">Stack</h4>
+                  <div class="flex flex-row flex-wrap gap-1">
+                    <span
+                      class="w-fit px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Bun</span>
+                    <span
+                      class="w-fit px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">TypeScript</span>
+                    <span
+                      class="w-fit px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">OpenRouter</span>
+                    <span
+                      class="w-fit px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Ollama</span>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-bold mb-3 text-slate-900">Modes</h4>
+                  <ul class="space-y-1 text-slate-500">
+                    <li>Agent</li>
+                    <li>Ask</li>
+                    <li>Plan</li>
+                    <li>Memory</li>
+                    <li>Undo</li>
+                    <li>Skills</li>
+                  </ul>
+                </div>
+
+              </aside>
+
+            </div>
+          </div>
+
+        </section>
+
+      </body>
+    </html>
