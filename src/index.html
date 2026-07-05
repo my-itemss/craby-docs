@@ -330,7 +330,7 @@
                       can even read back its own staged edits within the same
                       session, so "make a change, then verify it" actually
                       works. Nothing touches your real filesystem until you
-                      approve it — all at once, or file by file with full
+                      approve it  all at once, or file by file with full
                       diffs.</p>
 
                     <h3 class="text-lg font-semibold text-slate-800 mb-2">What
@@ -338,7 +338,7 @@
                     <p class="text-slate-600 leading-relaxed mb-4">
                       After a turn that made changes, craby automatically
                       asks itself "is this actually done and correct?" and
-                      keeps fixing — up to 2 rounds by default — before
+                      keeps fixing up to 2 rounds by default before
                       handing control back to you. Pure conversational
                       replies skip this; it only runs after real tool calls.
                       It is like a second pair of eyes that checks its own
@@ -347,9 +347,9 @@
                     <h3 class="text-lg font-semibold text-slate-800 mb-2">What
                       is Memory?</h3>
                     <p class="text-slate-600 leading-relaxed mb-4">
-                      craby decides what's worth keeping about a project — a
+                      Craby decides what's worth keeping about a project a
                       stated preference, an architectural choice, a "never
-                      touch this folder" rule — and saves it via the
+                      touch this folder" rule and saves it via the
                       <code>remember</code> tool. The next session's system
                       prompt includes it automatically, in Agent, Ask, and
                       Plan mode alike, so you stop re-explaining the same
@@ -372,7 +372,7 @@
                       If you configure an embedding model,
                       <code>semantic_search</code> finds conceptually related
                       code even when it doesn't share any keywords with your
-                      query, backed by a local on-disk index. It's how craby
+                      query, backed by a local on disk index. It's how craby
                       finds the right file to edit in a large codebase
                       without you having to name it.</p>
 
@@ -380,8 +380,8 @@
                       is AGENTS.md?</h3>
                     <p class="text-slate-600 leading-relaxed mb-4">
                       An <code>AGENTS.md</code> file in your project root
-                      gives craby persistent context — stack, conventions,
-                      architecture decisions — that gets injected into the
+                      gives craby persistent context stack, conventions,
+                      architecture decisions that gets injected into the
                       system prompt automatically, in every mode. Craby also
                       discovers and reads <code>SKILL.md</code> files the
                       same way Claude Code and Cursor do.</p>
